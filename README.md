@@ -1,9 +1,9 @@
 
-# Functions-C
+# Functions-C-
 
 ## Descripción
 
-**Functions-C** es un conjunto de funciones escritas en C, agrupadas en un menú interactivo que permite realizar varias tareas útiles. Este proyecto está diseñado para sistemas Windows y desarrollado utilizando el editor CLion.
+**Functions-C-** es un conjunto de funciones escritas en C, agrupadas en un menú interactivo que permite realizar varias tareas útiles. Este proyecto está diseñado para sistemas Windows y desarrollado utilizando el editor CLion.
 
 ## Instalación
 Para instalar y ejecutar el proyecto en tu máquina local, sigue los siguientes pasos:
