@@ -3,4 +3,5 @@ project(Functions_C C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Functions_C main.c)
+add_executable(Functions_C main.c
+        Tools.h)
