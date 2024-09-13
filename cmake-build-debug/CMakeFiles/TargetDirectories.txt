@@ -1,3 +1,3 @@
-C:/Users/angar/OneDrive/Desktop/UNIVERSIDAD/QUINTO SEMESTRE/PROGRAMACION III/TALLERES/Functions-C-/cmake-build-debug/CMakeFiles/Functions_C.dir
-C:/Users/angar/OneDrive/Desktop/UNIVERSIDAD/QUINTO SEMESTRE/PROGRAMACION III/TALLERES/Functions-C-/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/angar/OneDrive/Desktop/UNIVERSIDAD/QUINTO SEMESTRE/PROGRAMACION III/TALLERES/Functions-C-/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/USUARIO/Documents/Programacion III/Functions-C/cmake-build-debug/CMakeFiles/Functions_C.dir
+C:/Users/USUARIO/Documents/Programacion III/Functions-C/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/USUARIO/Documents/Programacion III/Functions-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

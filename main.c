@@ -1,5 +1,6 @@
 #include <ctype.h>
 #include <stdio.h>
+#include "Tools.h"
 
 void mainMenu();
 int main() {
@@ -46,6 +47,29 @@ void mainMenu() {
             }
             case '5': {
 
+                char entrada[50];
+                long numero;
+                char* numeroFormateado;
+
+                printf("Ingresa un numero entero: ");
+                scanf("%s", entrada);
+                fflush(stdin);
+
+
+                if (esNumeroValido(entrada)) {
+                    numero = atol(entrada);
+
+                    numeroFormateado = formatearNumeroConComas(numero);
+
+                    printf("Número formateado: %s\n", numeroFormateado);
+
+                    free(numeroFormateado);
+
+                } else {
+                    printf("Error: Entrada no válida. Debe ser un número entero sin comas ni puntos.\n");
+                }
+
+
                 break;
             }
             case '6': {
@@ -68,3 +92,4 @@ void mainMenu() {
         }
     } while (toupper(option) != 'X');
 }
+
