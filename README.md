@@ -14,3 +14,9 @@ Clona el repositorio:
 3. Configura el entorno de compilación para Windows si es necesario.
 4. Compila y ejecuta el proyecto desde CLion.
 
+## Integrantes
+- María Fernanda Angarita
+- Daniel Esteban Parra
+- Edward Esteban Fonseca
+- Edgar Sebastián Pérez
+
