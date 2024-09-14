@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char* formatearNumeroConComas(long numero) {
+char* formatNumber(long numero) {
     char buffer[50];
     char* resultado;
     int longitud, i, j, comas = 0;
@@ -52,5 +52,29 @@ int esNumeroValido(char* entrada) {
 
     return 1;
 }
+void capitalizeLetters(char cadena[]) {
+    int longitud = strlen(cadena);//funcion strlen nos da la longitud de la cadena ingresada
+    int nuevoInicioPalabra = 1; // Para saber si es el inicio de una nueva palabra.
+
+    for (int i = 0; i < longitud; i++) {
+        if (isspace(cadena[i])) { //isspace valida los "white-space" o saltos de linea "
+            nuevoInicioPalabra = 1; // El Siguiente carácter puede ser el inicio de una palabra.
+        } else if (nuevoInicioPalabra) {
+            // Si es el inicio de una nueva palabra, ya que la anterior condicion validó la posible primera palabra
+            if (i == longitud - 1 || isspace(cadena[i + 1])) {
+                // Si la palabra es de un solo carácter, lo convertimos a minuscula
+                cadena[i] = tolower(cadena[i]);
+            } else {
+                // Convertimos la primera letra de la palabra en mayúscula
+                cadena[i] = toupper(cadena[i]);
+            }
+            nuevoInicioPalabra = 0; // Ya no es inicio de palabra (no hay más palabras).
+        } else {
+            // Convertimos el resto de caracteres en minúscula
+            cadena[i] = tolower(cadena[i]);
+        }
+    }
+}
+
 #endif //TOOLS_H>
 

@@ -59,7 +59,7 @@ void mainMenu() {
                 if (esNumeroValido(entrada)) {
                     numero = atol(entrada);
 
-                    numeroFormateado = formatearNumeroConComas(numero);
+                    numeroFormateado = formatNumber(numero);
 
                     printf("Número formateado: %s\n", numeroFormateado);
 
@@ -81,6 +81,20 @@ void mainMenu() {
                 break;
             }
             case '8': {
+                char cadena[100];
+
+                printf("Ingrese una cadena de texto: ");
+                fgets(cadena, sizeof(cadena), stdin);
+
+                // Eliminar el salto de línea si es ingresado
+                size_t longitud = strlen(cadena);
+                if (cadena[longitud - 1] == '\n') {
+                    cadena[longitud - 1] = '\0';
+                }
+
+                capitalizeLetters(cadena);
+
+                printf("Cadena capitalizada: %s\n", cadena);
 
                 break;
             }
