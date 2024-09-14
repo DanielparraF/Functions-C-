@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 char* formatNumber(long numero) {
     char buffer[50];
@@ -37,7 +38,6 @@ char* formatNumber(long numero) {
 
 int esNumeroValido(char* entrada) {
     int i = 0;
-
 
     if (entrada[0] == '-') {
         i = 1;
@@ -75,6 +75,7 @@ void capitalizeLetters(char cadena[]) {
         }
     }
 }
+
 int validarEntrada(char cadena[]) {
     for (int i = 0; cadena[i] != '\0'; i++) {
         if (!isalpha(cadena[i]) && !isspace(cadena[i])) {
@@ -84,5 +85,51 @@ int validarEntrada(char cadena[]) {
     return 1; // Retorna 1 si todos los caracteres son válidos
 }
 
-#endif //TOOLS_H>
+/**
+ * Responsable: Edwar Esteban Fonseca Jimenez.
+ * Método que busca la última ocurrencia de una subcadena dentro de otra cadena.
+ * @param cadena Cadena principal donde se busca la subcadena.
+ * @param subcadena Subcadena que se desea buscar en la cadena principal.
+ * @return Un entero que representa la posición donde inicia la última aparición de la subcadena,
+ *         o 0 si la subcadena no se encuentra.
+ */
+int findLastOccurrence(char *string, char *substring) {
+    char *lastOccurrence = NULL;
+    char *temp = strstr(string, substring);
 
+    while (temp != NULL) {
+        lastOccurrence = temp;
+        temp = strstr(temp + 1, substring);
+    }
+
+    if (lastOccurrence != NULL) {
+        return (int)(lastOccurrence - string);
+    } else {
+        return 0;
+    }
+}
+
+/**
+ * Responsable: Edwar Eseban Fonseca Jimenez.
+ * Método que valida si los paréntesis en una cadena están balanceados.
+ * @param cadena Cadena de texto que contiene los paréntesis a evaluar.
+ * @return Un valor entero: 1 si los paréntesis están balanceados, 0 en caso contrario.
+ */
+int validateParenthesis(char *string) {
+    int count = 0;
+
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (string[i] == '(') {
+            count++;
+        } else if (string[i] == ')') {
+            count--;
+            if (count < 0) {
+                return 0;
+            }
+        }
+    }
+
+    return count == 0;
+}
+
+#endif // TOOLS_H>
