@@ -82,15 +82,25 @@ void mainMenu() {
             }
             case '8': {
                 char cadena[100];
+                int esValida = 0;
 
-                printf("Ingrese una cadena de texto: ");
-                fgets(cadena, sizeof(cadena), stdin);
+                do {
+                    printf("Ingrese una cadena de texto (solo letras y espacios): ");
+                    fgets(cadena, sizeof(cadena), stdin);
 
-                // Eliminar el salto de línea si es ingresado
-                size_t longitud = strlen(cadena);
-                if (cadena[longitud - 1] == '\n') {
-                    cadena[longitud - 1] = '\0';
-                }
+                    // Eliminar el salto de línea si es ingresado
+                    size_t longitud = strlen(cadena);
+                    if (cadena[longitud - 1] == '\n') {
+                        cadena[longitud - 1] = '\0';
+                    }
+
+                    // Validar la entrada
+                    esValida = validarEntrada(cadena);
+                    if (!esValida) {
+                        printf("Entrada no válida. Solo se permiten letras y espacios.\n");
+                    }
+
+                } while (!esValida);
 
                 capitalizeLetters(cadena);
 

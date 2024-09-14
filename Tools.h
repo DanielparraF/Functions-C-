@@ -75,6 +75,14 @@ void capitalizeLetters(char cadena[]) {
         }
     }
 }
+int validarEntrada(char cadena[]) {
+    for (int i = 0; cadena[i] != '\0'; i++) {
+        if (!isalpha(cadena[i]) && !isspace(cadena[i])) {
+            return 0; // Retorna 0 si encuentra un carácter no permitido
+        }
+    }
+    return 1; // Retorna 1 si todos los caracteres son válidos
+}
 
 #endif //TOOLS_H>
 
