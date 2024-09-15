@@ -12,21 +12,22 @@ void mainMenu() {
     char option;
     char *menu ="-----------------------------------------------------------------\n"
                 "<<<<<<<MENU PRINCIPAL>>>>>>\n\n"
-                "1. Buscar la ultima ocurrencia de una subcadena dentro de otra \n"
-                "2. Dividir una cadena de Texto \n"
-                "3. Unir el arreglo de caracteres de una cadena\n"
-                "4. Verificar si una cadena de Texto finaliza con otra\n"
-                "5. Formatear un valor Numerico\n"
-                "6. Verificar si una cadena de texto es Palindroma\n"
-                "7. Validar Parentesis\n"
-                "8. Capitalizar una cadena de Texto\n"
-                "X. Salir\n\n"
+                "1. Find the last occurrence of a substring within another \n"
+                "2. Split a Text string \n"
+                "3. Join the array of characters in a string\n"
+                "4. Check if a Text string ends with another\n"
+                "5. Format a Numeric value\n"
+                "6. Check if a text string is a Palindroma\n"
+                "7. Validate Parentheses\n"
+                "8. Capitalize a Text string\n"
+                "X. Exit\n\n"
 
-                "Digite su Opcion: ";
+                "Type your Option: ";
 
     do {
         printf("%s", menu);
         scanf(" %c", &option);
+        printf("-----------------------------------------------------------------\n" );
         fflush(stdin);
         switch (toupper(option)) {
             case '1': {
@@ -52,6 +53,19 @@ void mainMenu() {
             }
             case '2': {
 
+                char string[200];
+                char array[200];
+
+                printf("Enter a text string: ");
+                scanf(" %[^\n]", string);
+
+                divideString(string, array);
+
+                printf("Character array: ");
+                for (int i = 0; i < strlen(array); i++) {
+                    printf("%c ", array[i]);
+                }
+                printf("\n");
                 break;
             }
             case '3': {
@@ -89,7 +103,17 @@ void mainMenu() {
             }
             case '6': {
 
+                char string[100];
+
+                printf("Enter a string of characters: ");
+                scanf(" %[^\n]", string);
+                if (isPalindrome(string))
+                    printf("The string is a palindrome.\n");
+                else
+                    printf("The string is not a palindrome.\n");
+                getchar();
                 break;
+
             }
             case '7': {
                 char string[100];
@@ -136,7 +160,7 @@ void mainMenu() {
             case 'X':
                 break;
             default:
-                printf("Opcion no valida. Intente de nuevo.\n");
+                printf("Invalid option. Please try again.\n");
                 break;
         }
     } while (toupper(option) != 'X');
