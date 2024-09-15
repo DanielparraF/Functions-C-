@@ -10,6 +10,14 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+/**
+ * Responsable: Daniel Esteban Parra.
+ * Método que da formato a un número entero largo, insertando comas como separadores de miles.
+ * @param numero El número a formatear.
+ * @return Un puntero a una cadena con el número formateado, con comas como separadores de miles.
+ *         La memoria para esta cadena es asignada dinámicamente y debe ser liberada por el llamador.
+ */
+
 char* formatNumber(long numero) {
     char buffer[50];
     char* resultado;
@@ -36,7 +44,14 @@ char* formatNumber(long numero) {
     return resultado;
 }
 
-int esNumeroValido(char* entrada) {
+/**
+ * Responsable: Daniel Esteban Parra.
+ * Método que verifica si una cadena de caracteres representa un número válido.
+ * Un número válido puede comenzar con un signo negativo, seguido de dígitos.
+ * @param entrada La cadena de caracteres a validar.
+ * @return Un entero que representa 1 si la cadena es un número válido, o 0 en caso contrario.
+ */
+int isNumberValid(char* entrada) {
     int i = 0;
 
     if (entrada[0] == '-') {
@@ -52,6 +67,16 @@ int esNumeroValido(char* entrada) {
 
     return 1;
 }
+
+/**
+ * Responsable: Daniel Esteban Parra.
+ * Método que convierte una cadena de caracteres, poniendo la primera letra de cada palabra en mayúscula
+ * y el resto en minúscula. Las palabras se separan por espacios en blanco.
+ * @param cadena La cadena de caracteres a formatear.
+ *        La cadena se modifica en el lugar.
+ */
+
+
 void capitalizeLetters(char cadena[]) {
     int longitud = strlen(cadena);//funcion strlen nos da la longitud de la cadena ingresada
     int nuevoInicioPalabra = 1; // Para saber si es el inicio de una nueva palabra.
@@ -76,7 +101,15 @@ void capitalizeLetters(char cadena[]) {
     }
 }
 
-int validarEntrada(char cadena[]) {
+/**
+ * Responsable: Daniel Esteban Parra.
+ * Método que valida si una cadena de caracteres contiene solo letras y espacios.
+ * No permite caracteres numéricos o especiales.
+ * @param cadena La cadena de caracteres a validar.
+ * @return Un entero que representa 1 si la cadena es válida (solo letras y espacios), o 0 en caso contrario.
+ */
+
+int validEntry(char cadena[]) {
     for (int i = 0; cadena[i] != '\0'; i++) {
         if (!isalpha(cadena[i]) && !isspace(cadena[i])) {
             return 0; // Retorna 0 si encuentra un carácter no permitido

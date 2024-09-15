@@ -82,21 +82,21 @@ void mainMenu() {
                 long numero;
                 char* numeroFormateado;
 
-                printf("Ingresa un numero entero: ");
+                printf("Enter a number without the simbols and the ");
                 scanf("%s", entrada);
                 fflush(stdin);
 
-                if (esNumeroValido(entrada)) {
+                if (isNumberValid(entrada)) {
                     numero = atol(entrada);
 
                     numeroFormateado = formatNumber(numero);
 
-                    printf("Número formateado: %s\n", numeroFormateado);
+                    printf("Formatted number: %s\n", numeroFormateado);
 
                     free(numeroFormateado);
 
                 } else {
-                    printf("Error: Entrada no válida. Debe ser un número entero sin comas ni puntos.\n");
+                    printf("Error: Invalid entry. It must be a whole number without commas or periods.\n");
                 }
 
                 break;
@@ -134,7 +134,7 @@ void mainMenu() {
                 int esValida = 0;
 
                 do {
-                    printf("Ingrese una cadena de texto (solo letras y espacios): ");
+                    printf("Enter a text string (letters and spaces only): ");
                     fgets(cadena, sizeof(cadena), stdin);
 
                     // Eliminar el salto de línea si es ingresado
@@ -144,16 +144,16 @@ void mainMenu() {
                     }
 
                     // Validar la entrada
-                    esValida = validarEntrada(cadena);
+                    esValida = validEntry(cadena);
                     if (!esValida) {
-                        printf("Entrada no válida. Solo se permiten letras y espacios.\n");
+                        printf("Invalid entry. Only letters and spaces are allowed.\n");
                     }
 
                 } while (!esValida);
 
                 capitalizeLetters(cadena);
 
-                printf("Cadena capitalizada: %s\n", cadena);
+                printf("Capitalized chain: %s\n", cadena);
 
                 break;
             }
