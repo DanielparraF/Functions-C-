@@ -11,7 +11,7 @@ int main() {
 void mainMenu() {
     char option;
     char *menu ="-----------------------------------------------------------------\n"
-                "<<<<<<<MENU PRINCIPAL>>>>>>\n\n"
+                "<<<<<<<Main Menu>>>>>>\n\n"
                 "1. Find the last occurrence of a substring within another \n"
                 "2. Split a Text string \n"
                 "3. Join the array of characters in a string\n"
@@ -73,29 +73,29 @@ void mainMenu() {
                 char separator;
 
                 // Validación de entrada del arreglo de caracteres
-                printf("Ingrese el arreglo de caracteres (sin espacios): ");
+                printf("Enter the character array (without spaces): ");
                 scanf(" %[^\n]", array);
 
                 if (strlen(array) == 0) {
-                    printf("Error: El arreglo de caracteres no puede estar vacío.\n");
+                    printf("Error: Character array cannot be empty.\n");
                     break;
                 }
 
                 fflush(stdin); // Si usas un compilador que lo permita
 
                 // Validar entrada del separador
-                printf("Ingrese el caracter separador: ");
+                printf("Enter the separator character: ");
                 scanf(" %c", &separator);
 
                 if (separator == '\n') {
-                    printf("Error: Debes ingresar un carácter válido como separador.\n");
+                    printf("Error: You must enter a valid character as a separator.\n");
                     break;
                 }
 
                 // Llamar a la función que une el arreglo en una cadena
                 char* result = joinCharactersToString(array, separator);
 
-                printf("Cadena resultante: %s\n", result);
+                printf("Resulting string: %s\n", result);
                 free(result); // Liberar la memoria asignada
                 break;
             }
@@ -103,9 +103,9 @@ void mainMenu() {
                 char string[100], substring[100];
 
                 // Validación de entradas para las cadenas
-                printf("Ingrese la cadena principal: ");
+                printf("Enter the main string: ");
                 fgets(string, sizeof(string), stdin);
-                printf("Ingrese la subcadena: ");
+                printf("Enter the substring: ");
                 fgets(substring, sizeof(substring), stdin);
 
                 // Eliminar saltos de línea al final de las cadenas si existen
@@ -116,40 +116,40 @@ void mainMenu() {
 
                 // Validar que las cadenas no sean vacías
                 if (strlen(string) == 0 || strlen(substring) == 0) {
-                    printf("Error: La cadena o subcadena no pueden estar vacías.\n");
+                    printf("Error: String or substring cannot be empty.\n");
                     break;
                 }
 
                 // Llamar a la función que verifica si la cadena termina con la subcadena
                 int endsWith = endsWithSubstring(string, substring);
                 if (endsWith) {
-                    printf("La cadena termina con la subcadena.\n");
+                    printf("The string ends with the substring.\n");
                 } else {
-                    printf("La cadena no termina con la subcadena.\n");
+                    printf("String does not end with substring.\n");
                 }
                 break;
             }
             case '5': {
 
-                char entrada[50];
-                long numero;
-                char* numeroFormateado;
+                char input[50];
+                long number;
+                char* formattedNumber;
 
                 printf("Ingresa un numero entero: ");
-                scanf("%s", entrada);
+                scanf("%s", input);
                 fflush(stdin);
 
-                if (esNumeroValido(entrada)) {
-                    numero = atol(entrada);
+                if (isValidNumber(input)) {
+                    number = atol(input);
 
-                    numeroFormateado = formatNumber(numero);
+                    formattedNumber = formatNumber(number);
 
-                    printf("Número formateado: %s\n", numeroFormateado);
+                    printf("Número formateado: %s\n", formattedNumber);
 
-                    free(numeroFormateado);
+                    free(formattedNumber);
 
                 } else {
-                    printf("Error: Entrada no válida. Debe ser un número entero sin comas ni puntos.\n");
+                    printf("Error: Invalid input. Must be an integer without commas or periods.\n");
                 }
 
                 break;
@@ -183,30 +183,30 @@ void mainMenu() {
                 break;
             }
             case '8': {
-                char cadena[100];
-                int esValida = 0;
+                char string[100];
+                int isValid = 0;
 
                 do {
-                    printf("Ingrese una cadena de texto (solo letras y espacios): ");
-                    fgets(cadena, sizeof(cadena), stdin);
+                    printf("Enter a text string (letters and spaces only): ");
+                    fgets(string, sizeof(string), stdin);
 
                     // Eliminar el salto de línea si es ingresado
-                    size_t longitud = strlen(cadena);
-                    if (cadena[longitud - 1] == '\n') {
-                        cadena[longitud - 1] = '\0';
+                    size_t longitud = strlen(string);
+                    if (string[longitud - 1] == '\n') {
+                        string[longitud - 1] = '\0';
                     }
 
                     // Validar la entrada
-                    esValida = validarEntrada(cadena);
-                    if (!esValida) {
-                        printf("Entrada no válida. Solo se permiten letras y espacios.\n");
+                    isValid = validateEntry(string);
+                    if (!isValid) {
+                        printf("Invalid entry. Only letters and spaces are allowed.\n");
                     }
 
-                } while (!esValida);
+                } while (!isValid);
 
-                capitalizeLetters(cadena);
+                capitalizeLetters(string);
 
-                printf("Cadena capitalizada: %s\n", cadena);
+                printf("Capitalized string: %s\n", string);
 
                 break;
             }

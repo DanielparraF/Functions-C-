@@ -12,73 +12,73 @@
 
 char* formatNumber(long numero) {
     char buffer[50];
-    char* resultado;
-    int longitud, i, j, comas = 0;
+    char* result;
+    int length, i, j, comas = 0;
 
     sprintf(buffer, "%ld", numero);
-    longitud = strlen(buffer);
+    length = strlen(buffer);
 
     // Calcular cuántas comas se necesitan
-    comas = (longitud - 1) / 3;
+    comas = (length - 1) / 3;
 
-    resultado = (char*)malloc(longitud + comas + 1);
+    result = (char*)malloc(length + comas + 1);
 
-    for (i = longitud - 1, j = longitud + comas - 1; i >= 0; i--, j--) {
-        resultado[j] = buffer[i];
-        if ((longitud - i) % 3 == 0 && i > 0) {
+    for (i = length - 1, j = length + comas - 1; i >= 0; i--, j--) {
+        result[j] = buffer[i];
+        if ((length - i) % 3 == 0 && i > 0) {
             j--;
-            resultado[j] = ',';
+            result[j] = ',';
         }
     }
 
-    resultado[longitud + comas] = '\0';
+    result[length + comas] = '\0';
 
-    return resultado;
+    return result;
 }
 
-int esNumeroValido(char* entrada) {
+int isValidNumber(char* input) {
     int i = 0;
 
-    if (entrada[0] == '-') {
+    if (input[0] == '-') {
         i = 1;
     }
 
     // Verificar que todos los caracteres sean dígitos
-    for (; entrada[i] != '\0'; i++) {
-        if (!isdigit(entrada[i])) {
+    for (; input[i] != '\0'; i++) {
+        if (!isdigit(input[i])) {
             return 0;
         }
     }
 
     return 1;
 }
-void capitalizeLetters(char cadena[]) {
-    int longitud = strlen(cadena);//funcion strlen nos da la longitud de la cadena ingresada
-    int nuevoInicioPalabra = 1; // Para saber si es el inicio de una nueva palabra.
+void capitalizeLetters(char string[]) {
+    int lenght = strlen(string);//funcion strlen nos da la longitud de la cadena ingresada
+    int newHomeWord = 1; // Para saber si es el inicio de una nueva palabra.
 
-    for (int i = 0; i < longitud; i++) {
-        if (isspace(cadena[i])) { //isspace valida los "white-space" o saltos de linea "
-            nuevoInicioPalabra = 1; // El Siguiente carácter puede ser el inicio de una palabra.
-        } else if (nuevoInicioPalabra) {
+    for (int i = 0; i < lenght; i++) {
+        if (isspace(string[i])) { //isspace valida los "white-space" o saltos de linea "
+            newHomeWord = 1; // El Siguiente carácter puede ser el inicio de una palabra.
+        } else if (newHomeWord) {
             // Si es el inicio de una nueva palabra, ya que la anterior condicion validó la posible primera palabra
-            if (i == longitud - 1 || isspace(cadena[i + 1])) {
+            if (i == lenght - 1 || isspace(string[i + 1])) {
                 // Si la palabra es de un solo carácter, lo convertimos a minuscula
-                cadena[i] = tolower(cadena[i]);
+                string[i] = tolower(string[i]);
             } else {
                 // Convertimos la primera letra de la palabra en mayúscula
-                cadena[i] = toupper(cadena[i]);
+                string[i] = toupper(string[i]);
             }
-            nuevoInicioPalabra = 0; // Ya no es inicio de palabra (no hay más palabras).
+            newHomeWord = 0; // Ya no es inicio de palabra (no hay más palabras).
         } else {
             // Convertimos el resto de caracteres en minúscula
-            cadena[i] = tolower(cadena[i]);
+            string[i] = tolower(string[i]);
         }
     }
 }
 
-int validarEntrada(char cadena[]) {
-    for (int i = 0; cadena[i] != '\0'; i++) {
-        if (!isalpha(cadena[i]) && !isspace(cadena[i])) {
+int validateEntry(char string[]) {
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (!isalpha(string[i]) && !isspace(string[i])) {
             return 0; // Retorna 0 si encuentra un carácter no permitido
         }
     }
