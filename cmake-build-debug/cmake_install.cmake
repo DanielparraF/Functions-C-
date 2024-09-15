@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Equipo/CLionProjects/Functions-C-
+# Install script for directory: C:/Users/USUARIO/Documents/Programacion III/Functions-C-
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Equipo/CLionProjects/Functions-C-/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/USUARIO/Documents/Programacion III/Functions-C-/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

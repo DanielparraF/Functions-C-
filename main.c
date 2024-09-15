@@ -73,29 +73,29 @@ void mainMenu() {
                 char separator;
 
                 // Validación de entrada del arreglo de caracteres
-                printf("Ingrese el arreglo de caracteres (sin espacios): ");
+                printf("Enter the character array (without spaces): ");
                 scanf(" %[^\n]", array);
 
                 if (strlen(array) == 0) {
-                    printf("Error: El arreglo de caracteres no puede estar vacío.\n");
+                    printf("Error: The character array cannot be empty.\n");
                     break;
                 }
 
                 fflush(stdin); // Si usas un compilador que lo permita
 
                 // Validar entrada del separador
-                printf("Ingrese el caracter separador: ");
+                printf("Enter the separator character: ");
                 scanf(" %c", &separator);
 
                 if (separator == '\n') {
-                    printf("Error: Debes ingresar un carácter válido como separador.\n");
+                    printf("Error: You must enter a valid character as a separator.\n");
                     break;
                 }
 
                 // Llamar a la función que une el arreglo en una cadena
                 char* result = joinCharactersToString(array, separator);
 
-                printf("Cadena resultante: %s\n", result);
+                printf("Resulting string: %s\n", result);
                 free(result); // Liberar la memoria asignada
                 break;
             }
@@ -103,9 +103,9 @@ void mainMenu() {
                 char string[100], substring[100];
 
                 // Validación de entradas para las cadenas
-                printf("Ingrese la cadena principal: ");
+                printf("Enter the main string: ");
                 fgets(string, sizeof(string), stdin);
-                printf("Ingrese la subcadena: ");
+                printf("Enter the subString:  ");
                 fgets(substring, sizeof(substring), stdin);
 
                 // Eliminar saltos de línea al final de las cadenas si existen
@@ -116,16 +116,16 @@ void mainMenu() {
 
                 // Validar que las cadenas no sean vacías
                 if (strlen(string) == 0 || strlen(substring) == 0) {
-                    printf("Error: La cadena o subcadena no pueden estar vacías.\n");
+                    printf("Error: String or substring cannot be empty.\n");
                     break;
                 }
 
                 // Llamar a la función que verifica si la cadena termina con la subcadena
                 int endsWith = endsWithSubstring(string, substring);
                 if (endsWith) {
-                    printf("La cadena termina con la subcadena.\n");
+                    printf("The string ends with the substring.\n");
                 } else {
-                    printf("La cadena no termina con la subcadena.\n");
+                    printf("The string does not end with the substring.\n");
                 }
                 break;
             }
