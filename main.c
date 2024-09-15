@@ -161,7 +161,7 @@ void mainMenu() {
                 printf("Enter a string of characters: ");
                 scanf(" %[^\n]", string);
                 if (isPalindrome(string))
-                    printf("The string is a palindrome.\n");
+                    printf("The string is a palindromee.\n");
                 else
                     printf("The string is not a palindrome.\n");
                 getchar();
