@@ -212,5 +212,44 @@ int validateParenthesis(char *string) {
         }
         return 1;
     }
+/**
+ *Responsable Edgar Perez
+ * Función que une un arreglo de caracteres en una cadena de texto con un separador.
+ * @param array Arreglo de caracteres.
+ * @param separator Carácter separador entre las palabras.
+ * @return Cadena de texto unida.
+ */
+char* joinCharactersToString(char *array, char separator) {
+    int length = strlen(array);
+    char* result = (char*) malloc((2 * length) * sizeof(char)); // Reservar memoria para la cadena resultante
+    int j = 0;
 
+    for (int i = 0; i < length; i++) {
+        result[j++] = array[i];
+        if (i < length - 1) {
+            result[j++] = separator;
+        }
+    }
+    result[j] = '\0'; // Terminar la cadena con el carácter nulo
+    return result;
+}
+
+/**
+ **Responsable Edgar Perez
+ * Función que verifica si una cadena termina con una subcadena.
+ * @param string Cadena principal.
+ * @param substring Subcadena.
+ * @return 1 si la cadena termina con la subcadena, 0 en caso contrario.
+ */
+int endsWithSubstring(char *string, char *substring) {
+    int stringLength = strlen(string);
+    int substringLength = strlen(substring);
+
+    if (substringLength > stringLength) {
+        return 0; // La subcadena no puede ser mayor que la cadena principal
+    }
+
+    // Compara los últimos caracteres de la cadena con la subcadena
+    return (strcmp(&string[stringLength - substringLength], substring) == 0);
+}
 #endif // TOOLS_H>
