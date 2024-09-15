@@ -132,4 +132,52 @@ int validateParenthesis(char *string) {
     return count == 0;
 }
 
+/**
+ * Responsable: Maria Fernanda Angarita.
+ * Método que divide una cadena de texto en un arreglo de caracteres.
+ * @param cadena Cadena de texto que se desea dividir.
+ * @param array Arreglo de caracteres donde se almacenará cada carácter de la cadena.
+ * La función copia cada carácter de la cadena al arreglo y finaliza agregando el carácter nulo '\0'.
+ */
+
+    void divideString(char *string, char *array) {
+        int length = strlen(string);
+        for (int i = 0; i < length; i++) {
+            array[i] = string[i];
+        }
+        array[length] = '\0';
+    }
+
+/**
+ * Responsable: Maria Fernanda Angarita.
+ * Método que verifica si una cadena de texto es un palíndromo.
+ * @param cadena Cadena de texto que se desea verificar.
+ * @return Un entero que indica si la cadena es un palíndromo (1 si es palíndromo, 0 si no lo es).
+ * La función compara los caracteres de los extremos de la cadena, ignorando mayúsculas y espacios, hasta llegar al centro.
+ * Si todos los caracteres correspondientes coinciden, la función retorna 1 (verdadero),de lo contrario, retorna 0 (falso).
+ */
+    int isPalindrome(char *string) {
+        int left = 0;
+        int right = strlen(string) - 1;
+
+        while (left < right) {
+            if (!isalpha(string[left])) {
+                left++;
+                continue;
+            }
+            if (!isalpha(string[right])) {
+                right--;
+                continue;
+            }
+
+            if (tolower(string[left]) != tolower(string[right])) {
+                return 0;
+            }
+
+            left++;
+            right--;
+        }
+        return 1;
+    }
+
 #endif // TOOLS_H>
